@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dns-testing
+  namespace: example
+spec:
+  containers:
+  - name: main
+    image: mbentley/bind-tools:latest
+    command: ['sh', '-c', 'host my-service.example.svc.cluster.local']
+  restartPolicy: Never

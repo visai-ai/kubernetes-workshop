@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: example
+  name: my-deployment
+  labels:
+    app: static-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-web
+  template:
+    metadata:
+      labels:
+        app: static-web
+    spec:
+      containers:
+      - name: main
+        image: nginx:1.20
+        ports:
+        - containerPort: 80
+          protocol: TCP

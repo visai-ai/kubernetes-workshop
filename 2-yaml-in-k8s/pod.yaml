@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: example
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-1
+  namespace: example
+spec:
+  containers:
+  - name: main
+    image: nginx:latest
+    ports:
+    - name: web
+      protocol: TCP
+      containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-2
+  namespace: example
+spec:
+  containers:
+  - name: main
+    image: nginx:1.20
+    ports:
+    - name: web
+      protocol: TCP
+      containerPort: 80
