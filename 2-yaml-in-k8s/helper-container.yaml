@@ -13,5 +13,4 @@ spec:
       containerPort: 80
   - name: helper
     image: busybox:latest
-    ports:
     command: ['sh', '-c', 'sleep infinity']
